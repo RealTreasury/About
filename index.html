@@ -108,33 +108,6 @@
             object-fit: cover;
             min-height: 450px;
         }
-
-        .image-editor .edit-image-btn {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .image-editor .edit-image-btn:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-            transform: scale(1.1);
-        }
-
         /* Stat Cards */
         .stats-grid {
             display: grid;
@@ -172,86 +145,24 @@
             font-weight: 500;
         }
 
-        /* Floating Utility Buttons */
-        .floating-controls {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 1000;
-        }
-
-        .floating-btn {
-            background-color: var(--dark-text);
-            color: white;
-            border: none;
-            border-radius: 16px;
-            padding: 10px 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .floating-btn:hover {
-            background-color: var(--primary-purple);
-            transform: scale(1.05);
-        }
-
-        .floating-btn.active {
-            background-color: #198754; /* Green for active edit mode */
-        }
-        
-        /* Edit Mode Styling */
-        [contenteditable="true"] {
-            outline: 2px dashed var(--primary-purple);
-            outline-offset: 4px;
-            border-radius: 4px;
-            transition: outline 0.2s ease-in-out;
-            cursor: text;
-        }
-        
-        [contenteditable="true"]:hover {
-            background-color: rgba(114, 22, 244, 0.05);
-        }
-    </style>
+            </style>
 </head>
 <body>
-
-    <!-- Floating UI Controls -->
-    <div class="floating-controls">
-        <button id="editModeToggle" class="floating-btn">
-            <span class="icon">✏️</span>
-            <span>Edit Mode</span>
-        </button>
-        <button id="saveHtmlBtn" class="floating-btn">
-            <span class="icon">💾</span>
-            <span>Save HTML</span>
-        </button>
-    </div>
-
-    <!-- About Section Start -->
     <section id="about-section-real-treasury" class="about-section-container">
         <div class="container">
             <div class="about-grid">
                 <!-- Left Column: Content -->
                 <div class="about-content">
-                    <h2 contenteditable="true">Independent. Unbiased. Built for Treasury Teams.</h2>
-                    <h3 contenteditable="true">We help finance leaders select treasury technology faster—with confidence, clarity, and zero vendor bias.</h3>
+                    <h2>Independent. Unbiased. Built for Treasury Teams.</h2>
+                    <h3>We help finance leaders select treasury technology faster—with confidence, clarity, and zero vendor bias.</h3>
                     
-                    <p contenteditable="true">
+                    <p>
                         Real Treasury was founded by former enterprise treasury practitioners who grew tired of the traditional consulting model. We lived through the pain of endless vendor demos, biased recommendations, and expensive projects that didn't deliver. We knew there had to be a better way.
                     </p>
-                    <p contenteditable="true">
+                    <p>
                         Our independence is our superpower. Unlike large consultancies or sponsored content sites, we are 100% vendor-neutral. We don't accept referral fees or kickbacks. Our only goal is to find the perfect-fit technology for your unique needs, saving you time and ensuring you get the best possible outcome.
                     </p>
-                     <p contenteditable="true">
+                     <p>
                         With a structured methodology and deep market intelligence, we've guided over 50 enterprise treasury teams through successful technology selections. We streamline the RFP process, clarify complex requirements, and empower you to make decisions with absolute confidence.
                     </p>
                     
@@ -262,21 +173,20 @@
                 <div>
                     <div class="image-editor">
                         <img id="aboutImage" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Treasury team collaborating in a modern office.">
-                        <button class="edit-image-btn" id="editImageBtn" title="Edit Image">🖼️</button>
                     </div>
 
                     <div class="stats-grid">
                         <div class="stat-card">
-                            <div class="stat-number" contenteditable="true">250+</div>
-                            <div class="stat-label" contenteditable="true">Vendors Mapped</div>
+                            <div class="stat-number">250+</div>
+                            <div class="stat-label">Vendors Mapped</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number" contenteditable="true">80%</div>
-                            <div class="stat-label" contenteditable="true">Faster RFPs</div>
+                            <div class="stat-number">80%</div>
+                            <div class="stat-label">Faster RFPs</div>
                         </div>
                         <div class="stat-card">
-                            <div class="stat-number" contenteditable="true">50+</div>
-                            <div class="stat-label" contenteditable="true">Clients Served</div>
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Clients Served</div>
                         </div>
                     </div>
                 </div>
@@ -284,80 +194,6 @@
         </div>
     </section>
     <!-- About Section End -->
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const editModeToggle = document.getElementById('editModeToggle');
-            const saveHtmlBtn = document.getElementById('saveHtmlBtn');
-            const editImageBtn = document.getElementById('editImageBtn');
-            const aboutImage = document.getElementById('aboutImage');
-            
-            const aboutSection = document.getElementById('about-section-real-treasury');
-            let isEditMode = false;
-
-            // Function to toggle content editable state
-            function toggleEditMode() {
-                isEditMode = !isEditMode;
-                const editableElements = aboutSection.querySelectorAll('[contenteditable]');
-                
-                editableElements.forEach(el => {
-                    el.setAttribute('contenteditable', isEditMode);
-                });
-
-                editModeToggle.classList.toggle('active', isEditMode);
-                editModeToggle.querySelector('span:last-child').textContent = isEditMode ? 'Editing...' : 'Edit Mode';
-                if(isEditMode) {
-                    editModeToggle.querySelector('.icon').textContent = '✅';
-                } else {
-                    editModeToggle.querySelector('.icon').textContent = '✏️';
-                }
-            }
-
-            // Function to save the section's HTML
-            function saveHtml() {
-                // Temporarily remove edit mode outlines for clean export
-                const wasEditing = isEditMode;
-                if (wasEditing) {
-                    toggleEditMode(); // Turn off edit mode
-                }
-
-                // Clone the node to avoid modifying the live DOM
-                const sectionClone = aboutSection.cloneNode(true);
-                
-                // Create an anchor element and set attributes for download
-                const a = document.createElement('a');
-                a.href = 'data:text/html;charset=UTF-8,' + encodeURIComponent('<html>\n<head>\n<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">\n' + document.head.getElementsByTagName('style')[0].outerHTML + '</head>\n<body>\n' + sectionClone.outerHTML + '\n</body>\n</html>');
-                a.download = 'real-treasury-about-section.html';
-                
-                // Append to body, click, and remove
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-
-                 // Restore edit mode if it was on
-                if (wasEditing) {
-                    toggleEditMode();
-                }
-            }
-
-            // Function to edit the image URL
-            function editImage() {
-                const newImageUrl = prompt("Please enter the new image URL:", aboutImage.src);
-                if (newImageUrl) {
-                    aboutImage.src = newImageUrl;
-                }
-            }
-
-            // Add event listeners
-            editModeToggle.addEventListener('click', toggleEditMode);
-            saveHtmlBtn.addEventListener('click', saveHtml);
-            editImageBtn.addEventListener('click', editImage);
-            
-            // Set initial contenteditable state to false
-            const allEditable = aboutSection.querySelectorAll('[contenteditable]');
-            allEditable.forEach(el => el.setAttribute('contenteditable', 'false'));
-        });
-    </script>
 
 </body>
 </html>
